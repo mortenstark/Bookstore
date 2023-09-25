@@ -1,1 +1,2 @@
 # Bookstore
+This is a Liquid Studio project. It is used to create a mapping between an xsd file and a json schema file. The mapping is done manually in a graphical user interface. Once the manual mapping is complete, a data mapping file with the extension ".dm" is generated automatically.  Then the user can click compile, and a .exe and a .dll file is generated, as well as a visual studio project where the code can be viewed and edited.
