@@ -1,0 +1,87 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "bookstore": {
+            "$ref": "#/$defs/bookstore"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "bookstore"
+    ],
+    "$defs": {
+        "bookstore": {
+            "$ref": "#/$defs/bookstoreType"
+        },
+        "bookstoreType": {
+            "type": "object",
+            "properties": {
+                "book": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/bookType"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "bookType": {
+            "type": "object",
+            "properties": {
+                "price": {
+                    "type": "number"
+                },
+                "publicationdate": {
+                    "type": "string"
+                },
+                "ISBN": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the book. \nMax 50 characters.",
+                    "maxLength": 50
+                },
+                "author": {
+                    "$ref": "#/$defs/authorNameType"
+                },
+                "genre": {
+                    "$ref": "#/$defs/GenreType"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "price",
+                "title",
+                "author"
+            ]
+        },
+        "authorNameType": {
+            "type": "object",
+            "properties": {
+                "first-name": {
+                    "type": "string",
+                    "description": "The authors first name.\nMax 50 characters."
+                },
+                "last-name": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "first-name",
+                "last-name"
+            ]
+        },
+        "GenreType": {
+            "type": "string",
+            "enum": [
+                "Horror",
+                "Reference",
+                "Scifi",
+                "Fiction"
+            ]
+        }
+    }
+}
